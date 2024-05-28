@@ -37,7 +37,7 @@ public:
         }
         cout << "Deadline: " << deadline << endl;
         cout << "Progress: " << progress << endl;
-        cout << "Status: " << (completed ? "Selesai" : "Belum selesai") << endl;
+        // cout << "Status: " << (completed ? "Selesai" : "Belum selesai") << endl;
 
         cout << "Daftar Tugas:\n";
         for (const auto& tugas : daftarTugas) {

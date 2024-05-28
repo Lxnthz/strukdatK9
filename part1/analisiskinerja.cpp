@@ -77,9 +77,9 @@ void analyzeIndividual(const TeamMember& member) {
 
 int main() {
     vector<TeamMember> team {
-        {"John"},
-        {"Alice"},
-        {"Bob"}
+        {"Tim 1"},
+        {"Tim 2"},
+        {"Tim 3"}
     };
 
     team[0].daftarTugas.push_back(Task("Buat laporan progres"));
