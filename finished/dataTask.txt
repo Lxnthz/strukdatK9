@@ -1,0 +1,38 @@
+A01 bikin kode|U2|1
+A01 debug code|U2|1
+A01 deploy|U2|1
+A01 design|U3|1
+B01 prototyping|U4|1
+B01 halo|U4|1
+D01 printing|U5|1
+D01 lari lari|U5|1
+A01 crate|U2|1
+A01 halo|U2|1
+Z01 debug|U7|1
+Z01 debug 2|U8|1
+Z01 debug|U7|1
+A01 apaja|U2|1
+B01 halo halo|U10|1
+A01 tugas baru||0
+A01 ayam|U2|1
+C01 tes|U14|1
+B01 tesing|U4|1
+B01 pas|U10|1
+F01 debug|U11|1
+F01 debug lagi|U11|1
+F01 deploy|U11|1
+F01 deploy2|U12|1
+B01 loh|U4|1
+B01 loh2|U4|1
+B01 loh3|U4|1
+B01 haLO|U10|1
+B01 halo9|U4|1
+C01 tes2|U14|1
+C01 tes3||0
+C01 tes4||0
+B01 LOH47|U10|1
+F01 lagi debug|U12|1
+B01 loha|U4|1
+C01 tes5||0
+F01 DEBUGLAGI|U11|1
+B01 tugasbaru|U4|1

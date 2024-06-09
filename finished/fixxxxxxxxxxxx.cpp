@@ -254,8 +254,9 @@ void analyzeTeam(const Project& project) {
     cout << "Completion Rate: " << completionRate << "%\n";
 }
 
-void markTaskComplete(Project& project) {
-    vector<Task> tasks;
+void markTaskComplete(Project& project, const User& loggedInUser) {
+    vector<pair<string, Task>> allTasks;
+    vector<pair<string, Task>> projectTasks;
     ifstream infileTasks("dataTask.txt");
     if (infileTasks.is_open()) {
         string projectID, description, userID, isCompleteStr;
@@ -263,35 +264,43 @@ void markTaskComplete(Project& project) {
         while (getline(infileTasks, projectID, ' ') && getline(infileTasks, description, '|') && 
                getline(infileTasks, userID, '|') && getline(infileTasks, isCompleteStr)) {
             isComplete = (isCompleteStr == "1");
+            Task task = {description, isComplete, userID};
+            allTasks.push_back({projectID, task});
             if (projectID == project.id) {
-                tasks.push_back({description, isComplete, userID});
+                projectTasks.push_back({projectID, task});
             }
         }
         infileTasks.close();
     }
 
     cout << "List of Tasks:\n";
-    for (size_t i = 0; i < tasks.size(); ++i) {
-        cout << i + 1 << ". " << tasks[i].description << " [" << (tasks[i].isComplete ? "Complete" : "Incomplete") << "]\n";
+    for (size_t i = 0; i < projectTasks.size(); ++i) {
+        cout << i + 1 << ". " << projectTasks[i].second.description << " [" << (projectTasks[i].second.isComplete ? "Complete" : "Incomplete") << "]\n";
     }
 
     cout << "Enter Task Number to Mark Complete: ";
     int taskNumber;
     cin >> taskNumber;
-    if (taskNumber >= 1 && taskNumber <= tasks.size()) {
-        cout << "Enter User ID who completed the task: ";
-        string userID;
-        cin >> userID;
-        tasks[taskNumber - 1].isComplete = true;
-        tasks[taskNumber - 1].userID = userID;
-        ofstream outfile("dataTask.txt");
-        if (outfile.is_open()) {
-            for (const auto& task : tasks) {
-                outfile << project.id << " " << task.description << "|" << task.userID << "|" << task.isComplete << "\n";
+    if (taskNumber >= 1 && taskNumber <= projectTasks.size()) {
+        if (projectTasks[taskNumber - 1].second.isComplete) {
+            cout << "Task is already marked as complete and cannot be completed again.\n";
+        } else {
+            projectTasks[taskNumber - 1].second.isComplete = true;
+            projectTasks[taskNumber - 1].second.userID = loggedInUser.userID;
+
+            ofstream outfile("dataTask.txt");
+            if (outfile.is_open()) {
+                for (const auto& taskPair : allTasks) {
+                    if (taskPair.first == project.id && taskPair.second.description == projectTasks[taskNumber - 1].second.description) {
+                        outfile << project.id << " " << taskPair.second.description << "|" << loggedInUser.userID << "|" << 1 << "\n";
+                    } else {
+                        outfile << taskPair.first << " " << taskPair.second.description << "|" << taskPair.second.userID << "|" << taskPair.second.isComplete << "\n";
+                    }
+                }
+                outfile.close();
             }
-            outfile.close();
+            cout << "Task marked as complete.\n";
         }
-        cout << "Task marked as complete.\n";
     } else {
         cout << "Invalid task number.\n";
     }
@@ -526,7 +535,7 @@ void menuNonAdmin(const User& user) {
                 showProjectDetails(*it);
                 break;
             case 2:
-                markTaskComplete(*it);
+                markTaskComplete(*it, user); 
                 break;
             case 3:
                 collaborate(*it, user.username);
@@ -539,6 +548,7 @@ void menuNonAdmin(const User& user) {
         }
     }
 }
+
 
 void mainMenu() {
     loadProjects();

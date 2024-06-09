@@ -1,0 +1,35 @@
+A01|a01|halo
+A01|a01-1|halo juga
+B01|b01|halo dari b01
+A01|a01-1|testing a01-1
+A01|a01|testing a01
+A01|a01|halo halo
+A01|a01-1|halo halo juga
+A01|a01-1|tes
+Z01|z01-1|halo
+Z01|z01-2|halo juga
+A01|a01|apakabar
+A01|a01|hia
+A01|a01-1|hai juga
+A01|a01|testing
+A01|a01|123
+A01|a01-1|456
+A01|a01|ayam
+A01|a01-1|goreng
+B01|b01|halo2
+B01|b01-1|lagi2
+B01|b01-1|halo3
+B01|b01|halo4
+F01|f01|halo
+F01|f011|hjalo jga
+B01|b01|halo10
+B01|b01-1|halo11
+B01|b01|halo100
+B01|b01-1|halo200
+B01|b01-1|halo1000
+B01|b01|halojuga
+B01|b01|hai2
+C01|c01|halo
+B01|b01|halo90
+F01|f011|kasdkjahskjd
+C01|c01|halo1

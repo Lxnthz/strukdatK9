@@ -1,0 +1,7 @@
+B01|GKV|tugas gkv|2024-12-12|2025-12-12
+C01|OAK|tugas oak|2024-12-12|2025-12-12
+D01|metkuan|tugas metkuan|2024-12-12|2025-12-12
+E01|strukdis|tugas strukdis|2024-12-12|2025-12-12
+Z01|msib'|tugas msib|2024-12-12|2025-12-12
+A10|BC|bc|2024-12-12|2025-12-12
+F01|PPPP|PPPP|2024-12-12|2024-12-12
